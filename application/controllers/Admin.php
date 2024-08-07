@@ -30,6 +30,7 @@ class Admin extends CI_Controller {
 		
 	}
 
+
 	public function login() {
 		$data['view'] 				= 'admin/login.html';
 		$data['title'] 				= 'Admin | Login';
