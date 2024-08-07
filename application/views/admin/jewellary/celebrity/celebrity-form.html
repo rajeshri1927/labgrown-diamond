@@ -1,0 +1,31 @@
+<div class="col-lg-6 col-md-8 col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="float-left">
+                <h5 id="card-title">Add Celebrity</h5>
+            </div>
+            <button class="btn btn-secondary btn-square float-right toggle-form"> Back </button>
+        </div>
+        <form id="celebrity-form" name="celebrity-form" action="javascript:void(0)">
+            <input type="hidden" name="celebrity_id" id="celebrity_id">
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="form-label">Celebrity Name</label>
+                    <input type="text" class="form-control" id="celebrities_name" name="celebrities_name" placeholder="Celebrity Name" data-validation="required">    
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Text Content for SEO</label>
+                    <textarea class="form-control" id="text_content_for_seo" name="text_content_for_seo" placeholder="Text Content for SEO" data-validation="required"></textarea>    
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Link</label>
+                    <input type="text" class="form-control" id="link" name="link" placeholder="Link">    
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-primary btn-square" type="submit"> Save </button> &nbsp;
+                <button class="btn btn-default btn-square" type="reset"> Reset </button>
+            </div>
+        </form>
+    </div>
+</div>

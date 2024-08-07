@@ -1,0 +1,36 @@
+<div class="col-lg-12" id="metal-plating-form-container">
+    <div class="card">
+        <div class="card-header">
+            <div class="float-left">
+                <h5 id="card-title-metal-plating">Edit Metal Plating</h5>
+            </div>
+            <button class="btn btn-primary float-right toggle-form" id="back-btn">Back</button>
+        </div>
+        <form id="metal-plating-form" class="form" enctype="multipart/form-data">
+            <div class="card-body">
+                <input type="hidden" name="metal_plate_id" id="metal_plate_id" value="" readonly>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Metal Plate Name</label>
+                            <input type="text" class="form-control" id="metal_plate_name" name="metal_plate_name" placeholder="Enter Metal Plate Name" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Metal Plate Image</label>
+                            <input type="file" class="form-control" id="metal_plate_image" name="metal_plate_image">
+                            <!-- Image Preview -->
+                            <img id="metal_plate_image_preview" src="" style="width: 100px; display: none;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-primary btn-square btn-form-submit" type="submit">Save</button> &nbsp;
+                <button class="btn btn-default btn-square" type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="col-lg-6 col-md-8 col-sm-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="float-left">
+				<h5 id="card-title">Add Offer</h5>
+			</div>
+			<button class="btn btn-secondary btn-square float-right toggle-form"> Back </button>
+		</div>
+		<form id="offer-form" name="offer-form" action="javascript:void(0)">
+			<input type="hidden" name="offer_id" id="offer_id">
+			<div class="card-body">
+				<div class="form-group">
+					<label class="form-label">Offer Item Name</label>
+					<input type="text" class="form-control" id="offer_item_name" name="offer_item_name" placeholder="Offer Item Name" data-validation="required">	
+				</div>
+				<div class="form-group">
+					<label class="form-label">Offer Percent (%) </label>
+					<input type="text" class="form-control" id="offer_percent" name="offer_percent" placeholder="Offer Percent" data-validation="required">
+					<p id="errormsg" style="display: none; color: red;">Please enter only numbers.</p>	
+				</div>
+				<div class="form-group">
+					<label class="form-label">Offer</label>
+					<input type="text" class="form-control" id="offer" name="offer" placeholder="Offer" data-validation="required">
+					<p id="error" style="display: none; color: red;">Please enter only numbers.</p>
+				</div>
+	    	</div>
+	    	<div class="card-footer text-right">
+	    		<button class="btn btn-primary btn-square" type="submit"> Save </button> &nbsp;
+	    		<button class="btn btn-default btn-square" type="reset"> Reset </button>
+	    	</div>
+		</form>
+	</div>
+</div>

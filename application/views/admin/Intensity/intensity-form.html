@@ -1,0 +1,27 @@
+<div class="col-lg-6 col-md-8 col-sm-12">
+	<div class="card">
+		<div class="card-header">
+			<div class="float-left">
+				<h5 id="card-title">Add Intensity</h5>
+			</div>
+			<button class="btn btn-secondary btn-square float-right toggle-form"> Back </button>
+		</div>
+		<form id="intensity-form" name="intensity-form" action="javascript:void(0)">
+			<input type="hidden" name="intensity_id" id="intensity_id">
+			<div class="card-body">
+				<div class="form-group">
+					<label class="form-label">Intensity Name</label>
+					<input type="text" class="form-control" id="intensity_name" name="intensity_name" placeholder="Intensity Name" data-validation="required">	
+				</div>
+				<div class="form-group">
+					<label class="form-label">Intensity Description</label>
+					<textarea class="form-control" id="intensity_desc" name="intensity_desc" placeholder="Intensity Description" data-validation="required"></textarea>	
+				</div>
+	    	</div>
+	    	<div class="card-footer text-right">
+	    		<button class="btn btn-primary btn-square" type="submit"> Save </button> &nbsp;
+	    		<button class="btn btn-default btn-square" type="reset"> Reset </button>
+	    	</div>
+		</form>
+	</div>
+</div>

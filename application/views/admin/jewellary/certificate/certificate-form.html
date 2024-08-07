@@ -1,0 +1,58 @@
+<div class="col-lg-12" id="certificate-form-container">
+    <div class="card">
+        <div class="card-header">
+            <div class="float-left">
+                <h5 id="card-title-certificate">Edit Certificate</h5>
+            </div>
+            <button class="btn btn-primary float-right toggle-form" id="back-btn">Back</button>
+        </div>
+        <form id="certificate-form" class="form">
+            <div class="card-body">
+                <input type="hidden" name="certificate_id" id="certificate_id" value="" readonly>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Institute Name</label>
+                            <input type="text" class="form-control" id="institute_name" name="institute_name" placeholder="Enter Institute Name" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Minimum for 123 Carat</label>
+                            <input type="text" class="form-control" id="minimum_for_123_carat" name="minimum_for_123_carat" placeholder="Enter Minimum for 123 Carat" value="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Minimum for X Diamond Weight</label>
+                            <input type="text" class="form-control" id="minimum_for_x_diamond_wt" name="minimum_for_x_diamond_wt" placeholder="Enter Minimum for X Diamond Weight" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Rate Per Carat</label>
+                            <input type="text" class="form-control" id="rate_per_carat" name="rate_per_carat" placeholder="Enter Rate Per Carat" value="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Total</label>
+                            <input type="text" class="form-control" id="total" name="total" placeholder="Enter Total" value="" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-primary btn-square btn-form-submit" type="submit">Save</button> &nbsp;
+                <button class="btn btn-default btn-square" type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

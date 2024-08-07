@@ -1,0 +1,105 @@
+<style>
+	/* General form styling */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.form-check-input {
+    margin: 0; /* Remove default margin */
+}
+
+.form-check-label {
+    margin-left: 8px; /* Adjust spacing between checkbox and label */
+    display: inline; /* Ensure label is inline with checkbox */
+    font-size: 16px; /* Adjust font size as needed */
+    line-height: 1.5; /* Adjust line height for better vertical alignment */
+}
+
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12" id="form-container">
+    <div class="card">
+        <div class="card-header">
+            <div class="float-left">
+                <h5 id="card-title-coupon">Edit</h5>
+            </div>
+            <button class="btn btn-primary float-right toggle-form" id="back-btn">Back</button>
+        </div>
+        <form id="registration-form" class="form">
+            <div class="card-body">
+                <input type="hidden" name="metal_id" id="metal_id" value="" readonly>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Metal Name</label>
+                            <input type="text" class="form-control" id="metal_name" name="metal_name" placeholder="Enter Metal Name" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Making Charge</label>
+                            <input type="text" class="form-control" id="making_charge" name="making_charge" placeholder="Enter Making Charge" value="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+					<div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Density</label>
+                            <input type="text" class="form-control" id="density" name="density" placeholder="Enter Density" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Rate As Per API</label>
+                            <input type="text" class="form-control" id="rate_as_per_api" name="rate_as_per_api" placeholder="Enter Rate As Per API" value="" required>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+					<div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Manual Date</label>
+                            <input type="text" class="form-control" id="manual_date" name="manual_date" placeholder="Enter Manual Date" value="" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Manual Rate</label>
+                            <input type="text" class="form-control" id="manual_rate" name="manual_rate" placeholder="Enter Manual Rate" value="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+					
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="form-check">
+								<input type="checkbox" id="use_api_rate" name="use_api_rate" class="form-check-input">
+								<label for="use_api_rate" class="form-check-label">Use API Rate</label>
+							</div>
+						</div>						
+					</div>
+                    <div class="col-md-6">
+						<div class="form-group">
+							<div class="form-check">
+								<input type="checkbox" id="use_manual_rate" name="use_manual_rate" class="form-check-input">
+								<label for="use_manual_rate" class="form-check-label">Use Manual Rate</label>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button class="btn btn-primary btn-square btn-form-submit" type="submit">Save</button> &nbsp;
+                <button class="btn btn-default btn-square" type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
