@@ -194,5 +194,8 @@
         <li class="nav-item">
             <a class="nav-link" href="admin/permanent-jewellary-page"><i class="icon-picture"></i> Permanent jewellary Page</a>
         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="admin/home-page-api"><i class="icon-picture"></i> Home Page API</a>
+        </li>
     </ul>
 </nav>

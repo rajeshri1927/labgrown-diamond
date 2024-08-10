@@ -19,6 +19,8 @@ class Welcome extends CI_Controller {
 		$this->load->model('Overtone_model','overtone_model');
 		$this->load->model('Intensity_model','intensity_model'); 
 		$this->load->model('Wishlist_model','wishlist_model');
+		$this->load->model('Homeapi_model','homeapi_model');
+
 		$client_ip        = $this->get_client_ip_server();
 		$this->client_obj = $this->getCountry($client_ip);
 		// print_r($client_ip);die;
@@ -57,15 +59,7 @@ class Welcome extends CI_Controller {
 		$data['overtones']             = $this->overtone_model->get_overtone();
 		$data['intensities']           = $this->intensity_model->get_intensity();
 		$data['banners'] 		       = $this->banner_model->get_banners();
-		// $product_limit              = 1;
-		// $prods_limit                = 1;
-		// $skin_limit                 = 1;
-		// $hair_limit                 = 1;
-		// $data['products']           = $this->product_model->fetch_record($table_name,'product_category',2,$product_limit); 
-		// $data['prods']              = $this->product_model->fetch_record($table_name,'product_category',3,$prods_limit);
-		// $data['skin_prods']         = $this->product_model->fetch_record($table_name,'product_category',4,$skin_limit);
-		// $data['hair_prods']         = $this->product_model->fetch_record($table_name,'product_category',5,$hair_limit);
-		// $data['categories']         = $this->category_model->get_category();
+		$data['home_api_response'] 	   = $this->homeapi_model->get_existing_data();
 		$data['title'] 				   = 'Lab Grown Diamond| Home';
 		$this->template->load_site($data);
 	}
@@ -89,22 +83,6 @@ class Welcome extends CI_Controller {
 		$data['banners'] 		    = $this->banner_model->get_banners();
 		$this->template->load_site($data);
 	}
-
-	// public function ayurveda_view() {
-	// 	$data['view'] 		        = 'ayurveda';
-	// 	$data['show_top_navbar']    = true;
-	// 	$data['categories']         = $this->category_model->get_category();
-	// 	$data['title'] 		        = 'Lab Grown Diamond| Ayurveda';
-	// 	$this->template->load_site($data);
-	// }    
-	
-	// public function distributors_view() {
-	// 	$data['view'] 		        = 'distributors';
-	// 	$data['show_top_navbar']    = true;
-	// 	$data['categories']         = $this->category_model->get_category();
-	// 	$data['title'] 		        = 'Lab Grown Diamond| Distributors';
-	// 	$this->template->load_site($data);
-	// }
 
 	// public function director_profile_view() {
 	// 	$data['view'] 		        = 'director-profile';
@@ -287,29 +265,6 @@ class Welcome extends CI_Controller {
 		$this->template->load_site($data);
 	}
 
-    // public function faq_view() {
-    //     $data['show_top_navbar']    = true;
-	// 	$data['view'] 		= 'faq-view.html';
-	// 	$data['categories'] = $this->category_model->get_category();
-	// 	$data['title'] 		= 'Lab Grown Diamond| FAQs';
-	// 	$this->template->load_site($data);
-	// }
-
-	// public function terms_and_conditions_view() {
-	//     $data['show_top_navbar']    = true;
-	// 	$data['view'] 		= 'terms-and-conditions.html';
-	// 	$data['categories']  = $this->category_model->get_category();
-	// 	$data['title'] 		= 'Lab Grown Diamond| Terms&conditions';
-	// 	$this->template->load_site($data);
-	// }
-	// public function privacy_policy_view(){
-	//     $data['show_top_navbar']    = true;
-	//     $data['view'] 		= 'privacy-policy.html';
-	//     $data['categories'] = $this->category_model->get_category();
-	// 	$data['title'] 		= 'Lab Grown Diamond| Privacy Policy';
-	// 	$this->template->load_site($data); 
-	// }
-
 	public function return_policy_view() {
 	    $data['show_top_navbar']  = true;
 	    $data['view'] 		= 'return_policy';
@@ -317,14 +272,6 @@ class Welcome extends CI_Controller {
 		$this->template->load_site($data);
 	}
 	
-	// public function cancellation_policy_view() {
-	//     $data['show_top_navbar']    = true;
-	//     $data['view'] 		= 'cancellation-policy.html';
-	//     $data['categories'] = $this->category_model->get_category();
-	// 	   $data['title'] 		= 'Lab Grown Diamond| Privacy Policy';
-	// 	   $this->template->load_site($data);
-	//}
-
 	public function shipping_policy_view() {
 	    $data['show_top_navbar']  = true;
 	    $data['view'] 		= 'shipping_policy';

@@ -4,60 +4,66 @@
    include_once('layout/filtermanu.php');
 ?>
 <!----tabs end------->
-<div class="row" id="diamondfilterContainer"></div>
 <div class="bg_lab">
-      <img srcset="assets/images/lb/Lab_bg.gif 320w, assets/images/lb/Lab_bg.gif 640w, assets/images/lb/Lab_bg.gif 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/lb/Lab_bg.gif" alt="Image" loading="lazy" class="img-fluid">
-    </div>
+   <?php 
+      if(isset($banners)  &&  !empty($banners)){
+         foreach($banners as $banner){
+   ?>
+      <img srcset="assets/uploads/banners/<?php echo $banner['banner_background'];?> 320w,assets/uploads/banners/<?php echo $banner['banner_background'];?> 640w, assets/uploads/banners/<?php echo $banner['banner_background'];?> 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/uploads/banners/<?php echo $banner['banner_background'];?>" alt="<?php echo $banner['banner_title'];?>" loading="lazy" class="img-fluid">
+   <?php 
+         }
+      }
+   ?>
+</div>
     <div class="container">
       <div class="marquee mt-5">
         <div class="track">
-       If you buy more than one diamond, for all additional buy 75% shipping cost rebate at check out page. Buy more than 1 and get 75% + shipping cost, as rebate on check out page. If you buy more than one diamond, for all additional buy 75%  shipping cost rebate at check out page. Buy more than 1 and get 75% + shipping cost, as rebate on check out page.
-       </div> 
-     </div>
-
-     <div class="differ_view center mt-5">
-      <h2>Famous Brands</h2>
-      <p style="font-size: large;font-weight: 700;">We can't make exactly same but can make similar looking jewelry for you.</p>
-      <p style="color: #ff8080;font-weight: 700;">We can copy ANY other BRAND design you DESIRE</p>
-      <div class="heading_border"></div>
-    </div>
+            If you buy more than one diamond, for all additional buy 75% shipping cost rebate at check out page. Buy more than 1 and get 75% + shipping cost, as rebate on check out page. If you buy more than one diamond, for all additional buy 75%  shipping cost rebate at check out page. Buy more than 1 and get 75% + shipping cost, as rebate on check out page.
+         </div> 
+      </div>
+      <div class="differ_view center mt-5">
+         <h2>Famous Brands</h2>
+         <p style="font-size: large;font-weight: 700;">We can't make exactly same but can make similar looking jewelry for you.</p>
+         <p style="color: #ff8080;font-weight: 700;">We can copy ANY other BRAND design you DESIRE</p>
+         <div class="heading_border"></div>
+      </div>
     <div class="container mt-4">
       <div class="row">
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/chanel.png" loading="lazy" class="img-fluid">    
+            <img src="assets/images/famous_brand/chanel.png" loading="lazy" class="img-fluid">    
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/bvlgari.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/bvlgari.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/cartier.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/cartier.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/chopard.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/chopard.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/dior.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/dior.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/graff.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/graff.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/pandora.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/pandora.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/piaget.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/piaget.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/tiffany.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/tiffany.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/van_cleef.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/van_cleef.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/verragio.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/verragio.png" loading="lazy" class="img-fluid">
         </div>
         <div class="famous_brand">
-        <img src="assets/images/famous_brand/chanel.png" loading="lazy" class="img-fluid">
+            <img src="assets/images/famous_brand/chanel.png" loading="lazy" class="img-fluid">
         </div>
       </div>
     </div>
@@ -68,297 +74,136 @@
       </div>
       <div class="heading_border"></div>
       <div class="mt-5 fourin1">
-        <div class="shape_image_row">
-          <div class="shape shbr" data-target="any_shape">
+        <div class="shape_image_row ">
+         <!--   -->
+         <?php
+           if (isset($shapes) && !empty($shapes)) {
+              $shapeNames = array();
+              foreach ($shapes as $index => $shape) {
+                  $image = $shape['system_file_name'];
+                  //$shapeNames[] = $shape['shape_name'];
+              }
+              // $url = 'get-products-get-shape?';
+              // foreach ($shapeNames as $shapeName) {
+              //     $url .= 'shape[]=' . urlencode($shapeName) . '&';
+              // }
+              // $url = rtrim($url, '&');
+         ?>
+        <!--  <div class="shape shbr" data-target="any_shape">
+           <span>Any</span>
+           <div class="shape_image any">
+             Shape
+           </div>
+           <input type="checkbox" name="shape" value="any">
+         </div> -->
+         <div class="shape shbr" data-target="any_shape">
             <span>Any</span>
             <div class="shape_image any">
-              Shape
+              Any
+              <?php foreach ($shapeNames as $shapeName): ?>
+              <input type="hidden" name="shape[]" value="<?php echo htmlspecialchars($shapeName); ?>" class="myCheckbox" data-target="<?php echo htmlspecialchars($shapeName); ?>">
+              <?php endforeach; ?>
             </div>
-            <input type="checkbox" name="shape" value="any">
-          </div>
-          <div class="shape shbr" data-target="round">
-            <span>Round</span>
-            <div class="shape_image" title="Round"> 
-              <img srcset="assets/images/shapes/Round.png 320w, assets/images/shapes/Round.png 640w, assets/images/shapes/Round.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Round.png" alt="Image" loading="lazy" class="img-fluid">
+            <input type="checkbox" name="shape[]" value="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>" class="myCheckbox" data-target="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>">
+         </div>
+         <?php } ?>
+         <?php
+            if (isset($shapes) && !empty($shapes)) {
+              foreach ($shapes as $index => $shape) {
+         ?>
+         <div class="shape shbr" data-target="any_shape">
+            <span><?php echo ucfirst($shape['shape_name']); ?></span>
+            <div class="shape_image" title="<?php echo ucfirst($shape['shape_name']); ?>">
+               <?php 
+                  $image = $shape['system_file_name'];
+                  if($image){ ?>
+                     <img src="assets/uploads/shapes/<?php echo $image;?>" class="img-fluid">
+               <?php 
+                  }else{?>
+                      <span><?php echo $shape['shape_name'];?></span>
+               <?php }
+               ?>
             </div>
-            <input type="checkbox" name="shape" value="Round">
-          </div>
-          <div class="shape shbr" data-target="princess">
-            <span>Princess</span>
-            <div class="shape_image" title="Princess">
-              <img srcset="assets/images/shapes/diamond princess.png 320w, assets/images/shapes/diamond princess.png 640w, assets/images/shapes/diamond princess.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/diamond princess.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Princess">
-          </div>
-          <div class="shape shbr" data-target="pear">
-            <span>Pear</span>
-            <div class="shape_image" title="Pear">
-              <img srcset="assets/images/shapes/diamond Pear.png 320w, assets/images/shapes/diamond Pear.png 640w, assets/images/shapes/diamond Pear.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/diamond Pear.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Pear">
-          </div>
-          <div class="shape shbr" data-target="shield">
-            <span>Cushion</span>
-            <div class="shape_image" title="Shield">
-              <img srcset="assets/images/shapes/cushion diamond.png 320w, assets/images/shapes/cushion diamond.png 640w, assets/images/shapes/cushion diamond.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/cushion diamond.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Shield">
-          </div>
-          <div class="shape shbr" data-target="radiant">
-            <span>Radiant</span>
-            <div class="shape_image" title="Radiant">
-              <img srcset="assets/images/shapes/Raddiant.png 320w, assets/images/shapes/Raddiant.png 640w, assets/images/shapes/Raddiant.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Raddiant.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Radiant">
-          </div>
-
-          <div class="shape shbr" data-target="heart">
-            <span>Heart</span>
-            <div class="shape_image" title="Heart">
-              <img srcset="assets/images/shapes/DIAMOND HEART.png 320w, assets/images/shapes/DIAMOND HEART.png 640w, assets/images/shapes/DIAMOND HEART.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/DIAMOND HEART.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Heart">
-          </div>
-
-          <div class="shape shbr" data-target="oval">
-            <span>Oval</span>
-            <div class="shape_image" title="Oval">
-              <img srcset="assets/images/shapes/oval diamond1.png 320w, assets/images/shapes/oval diamond1.png 640w, assets/images/shapes/oval diamond1.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/oval diamond1.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Oval">
-          </div>
-          
-          <div class="shape shbr" data-target="Marquise">
-            <span>Marqui?</span>
-            <div class="shape_image" title="Marquise">
-              <img srcset="assets/images/shapes/diamond marquise.png 320w, assets/images/shapes/diamond marquise.png 640w, assets/images/shapes/diamond marquise.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/diamond marquise.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Marquise">
-          </div>
-          
-                  
-          <div class="shape shbr" data-target="emerald">
-            <span>Emerald</span>
-            <div class="shape_image" title="Emerald">
-              <img srcset="assets/images/shapes/Emerald2.png 320w, assets/images/shapes/Emerald2.png 640w, assets/images/shapes/Emerald2.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Emerald2.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Emerald">
-          </div>
-          <div class="shape shbr">
-            <span>Other</span>
-            <div class="shape_image pt-2" title="Other">
-              <p>Other</p>
-            </div>
-            <input type="checkbox" name="shape" value="Cushion">
-          </div>
-        </div>      </div>
-
+            <input type="checkbox" name="shape[]" value="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>" class="myCheckbox" data-target="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>">
+         </div> 
+         <?php } } ?>      
+      </div>      
+      </div>
       <table class="table-responsive fancy_shape_table table-bordered mt-3 table-striped">
         <thead>
-          <tr>
-            <th class="bg-primary">Carat Weight ?</th>
-            <th colspan="2" class="bg-info">Good (A)</th>
-            <th colspan="2" class="bg-success">Very Good (AA)</th>
-            <th colspan="2" class="bg-warning">Best (AAA)</th>
-           </tr>
-         <tr>
-           <th></th>
-           <th class="first-letter-big">From:</th>
-           <th class="first-letter-big">To:</th>
-           <th class="first-letter-big">From:</th>
-           <th class="first-letter-big">To:</th>
-           <th class="first-letter-big">From:</th>
-           <th class="first-letter-big">To:</th>
-         </tr>
+            <tr>
+                <th class="bg-primary">Carat Weight ?</th>
+                <th colspan="2" class="bg-info">Good (A)</th>
+                <th colspan="2" class="bg-success">Very Good (AA)</th>
+                <th colspan="2" class="bg-warning">Best (AAA)</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th class="first-letter-big" style="color:#009578;">From:</th>
+                <th class="first-letter-big" style="color:#009578;">To:</th>
+                <th class="first-letter-big" style="color:#009578;">From:</th>
+                <th class="first-letter-big" style="color:#009578;">To:</th>
+                <th class="first-letter-big" style="color:#009578;">From:</th>
+                <th class="first-letter-big" style="color:#009578;">To:</th>
+            </tr>
         </thead>
         <tbody>
-          <tr>
-           <td>
-             0.20 TO 0.49
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td class="red_color">Not Available</td>
-          <td class="red_color">Not Available</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
-          <tr>
-           <td>
-             0.50 TO 0.69
-            </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
-          <tr>
-           <td>
-             0.70 TO 0.99
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          <td class="red_color">Not Available</td>
-          <td class="red_color">Not Available</td>
-          </tr>
-          <tr>
-           <td>
-            1.00 TO 1.49
-           </td>
-           <td>
-            500000
-          </td>
-          <td>700000</td>
-          <td>
-           500000
-         </td>
-         <td>700000</td>
-          <td>
-           500000
-         </td>
-         <td>700000</td>
-          </tr>
-          <tr>
-           <td>
-             1.50 TO 1.99
-           </td>
-           <td class="red_color">Not Available</td>
-           <td class="red_color">Not Available</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
-          <tr>
-           <td>
-             2.00 TO 2.99
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
-          <tr>
-           <td>
-             3.00 TO 4.99
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
+        <?php
+            $items_per_page = 10; // Number of items per page
+            $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Current page
 
-          </tr>
-          <tr>
-           <td>
-             5.00 TO 6.99
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-
-          </tr>
-          <tr>
-           <td>
-             7.00 TO 9.99
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
-          <tr>
-           <td>
-             10.00 TO 19.99
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
-          <tr>
-           <td>
-             20 +
-           </td>
-           <td>
-            $500000
-           </td>
-           <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-           <td>
-            $500000
-          </td>
-          <td>$700000</td>
-          </tr>
+            // Ensure that $home_api_response is an array
+            if (is_array($home_api_response)) {
+                $total_items = count($home_api_response); // Total number of items
+                $total_pages = ceil($total_items / $items_per_page); // Total number of pages
+                $start_index = ($current_page - 1) * $items_per_page; // Start index for the current page
+                $home_api_response_page = array_slice($home_api_response, $start_index, $items_per_page);
+            } else {
+                // Handle the error or set defaults
+                $total_items = 0;
+                $total_pages = 0;
+                $home_api_response_page = [];
+            }
+            ?>
+        <?php 
+            if (!empty($home_api_response_page) && is_array($home_api_response_page)) {
+                foreach($home_api_response_page as $homeapi) {
+        ?>
+            <tr>
+                <td><?php echo htmlspecialchars(isset($homeapi['size_from']) ? $homeapi['size_from'] : 'N/A'); ?></td>
+                <td><?php echo htmlspecialchars(isset($homeapi['price_from']) ? $homeapi['price_from'] : 'N/A'); ?></td>
+                <td><?php echo htmlspecialchars(isset($homeapi['size_from']) ? $homeapi['size_from'] : 'N/A'); ?></td>
+                <td><?php echo htmlspecialchars(isset($homeapi['price_from']) ? $homeapi['price_from'] : 'N/A'); ?></td>
+                <td><?php echo htmlspecialchars(isset($homeapi['size_from']) ? $homeapi['size_from'] : 'N/A'); ?></td>
+                <td><?php echo htmlspecialchars(isset($homeapi['price_from']) ? $homeapi['price_from'] : 'N/A'); ?></td>
+                <td><?php echo htmlspecialchars(isset($homeapi['price_from']) ? $homeapi['price_from'] : 'N/A'); ?></td>
+            </tr>
+            <?php 
+                }
+            }
+            ?>
         </tbody>
-     </table>
+    </table>
+
+    <div class="pagination">
+        <?php if ($current_page > 1): ?>
+            <a href="?page=<?php echo $current_page - 1; ?>">&laquo; Previous</a>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+            <?php if ($i == $current_page): ?>
+                <span><?php echo $i; ?></span>
+            <?php else: ?>
+                <a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+            <?php endif; ?>
+        <?php endfor; ?>
+
+        <?php if ($current_page < $total_pages): ?>
+            <a href="?page=<?php echo $current_page + 1; ?>">Next &raquo;</a>
+        <?php endif; ?>
     </div>
 
+    </div>
     <div class="home_quality">
       <div class="differ_view center mt-5">
         <h2 class="center">FANCY COLOR LG DIAMONDS -SHAPE - FANCY COLOR- INTENSITY - WEIGHT RANGE - PRICE RANGE</h2>
@@ -366,185 +211,108 @@
       </div>
       <div class="heading_border"></div>
       <div class="mt-5 fourin1">
-        <div class="shape_image_row">
-          <div class="shape shbr" data-target="any_shape">
+          <div class="shape_image_row ">
+         <!--   -->
+         <?php
+           if (isset($shapes) && !empty($shapes)) {
+              $shapeNames = array();
+              foreach ($shapes as $index => $shape) {
+                  $image = $shape['system_file_name'];
+                  //$shapeNames[] = $shape['shape_name'];
+              }
+              // $url = 'get-products-get-shape?';
+              // foreach ($shapeNames as $shapeName) {
+              //     $url .= 'shape[]=' . urlencode($shapeName) . '&';
+              // }
+              // $url = rtrim($url, '&');
+         ?>
+        <!--  <div class="shape shbr" data-target="any_shape">
+           <span>Any</span>
+           <div class="shape_image any">
+             Shape
+           </div>
+           <input type="checkbox" name="shape" value="any">
+         </div> -->
+         <div class="shape shbr" data-target="any_shape">
             <span>Any</span>
             <div class="shape_image any">
-              Shape
+              Any
+              <?php foreach ($shapeNames as $shapeName): ?>
+              <input type="hidden" name="shape[]" value="<?php echo htmlspecialchars($shapeName); ?>" class="myCheckbox" data-target="<?php echo htmlspecialchars($shapeName); ?>">
+              <?php endforeach; ?>
             </div>
-            <input type="checkbox" name="shape" value="any">
-          </div>
-          <div class="shape shbr" data-target="round">
-            <span>Round</span>
-            <div class="shape_image" title="Round">
-              <img srcset="assets/images/shapes/Round.png 320w, assets/images/shapes/Round.png 640w, assets/images/shapes/Round.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Round.png" alt="Image" loading="lazy" class="img-fluid">
+            <input type="checkbox" name="shape[]" value="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>" class="myCheckbox" data-target="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>">
+         </div>
+         <?php } ?>
+         <?php
+            if (isset($shapes) && !empty($shapes)) {
+              foreach ($shapes as $index => $shape) {
+         ?>
+         <div class="shape shbr" data-target="any_shape">
+            <span><?php echo ucfirst($shape['shape_name']); ?></span>
+            <div class="shape_image" title="<?php echo ucfirst($shape['shape_name']); ?>">
+               <?php 
+                  $image = $shape['system_file_name'];
+                  if($image){ ?>
+                     <img src="assets/uploads/shapes/<?php echo $image;?>" class="img-fluid">
+               <?php 
+                  }else{?>
+                      <span><?php echo $shape['shape_name'];?></span>
+               <?php }
+               ?>
             </div>
-            <input type="checkbox" name="shape" value="Round">
-          </div>
-          <div class="shape shbr" data-target="princess">
-            <span>Princess</span>
-            <div class="shape_image" title="Princess">
-              <img srcset="assets/images/shapes/diamond princess.png 320w, assets/images/shapes/diamond princess.png 640w, assets/images/shapes/diamond princess.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/diamond princess.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Princess">
-          </div>
-          <div class="shape shbr" data-target="pear">
-            <span>Pear</span>
-            <div class="shape_image" title="Pear">
-              <img srcset="assets/images/shapes/diamond Pear.png 320w, assets/images/shapes/diamond Pear.png 640w, assets/images/shapes/diamond Pear.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/diamond Pear.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Pear">
-          </div>
-          <div class="shape shbr" data-target="shield">
-            <span>Cushion</span>
-            <div class="shape_image" title="Shield">
-              <img srcset="assets/images/shapes/cushion diamond.png 320w, assets/images/shapes/cushion diamond.png 640w, assets/images/shapes/cushion diamond.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/cushion diamond.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Shield">
-          </div>
-          <div class="shape shbr" data-target="asscher">
-            <span>Asscher</span>
-            <div class="shape_image" title="Asscher">
-              <img srcset="assets/images/shapes/Assher.png 320w, assets/images/shapes/Assher.png 640w, assets/images/shapes/Assher.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Assher.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Asscher">
-          </div>
-          <div class="shape shbr" data-target="radiant">
-            <span>Radiant</span>
-            <div class="shape_image" title="Radiant">
-              <img srcset="assets/images/shapes/Raddiant.png 320w, assets/images/shapes/Raddiant.png 640w, assets/images/shapes/Raddiant.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Raddiant.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Radiant">
-          </div>
-          <div class="shape shbr" data-target="heart">
-            <span>Heart</span>
-            <div class="shape_image" title="Heart">
-              <img srcset="assets/images/shapes/DIAMOND HEART.png 320w, assets/images/shapes/DIAMOND HEART.png 640w, assets/images/shapes/DIAMOND HEART.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/DIAMOND HEART.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Heart">
-          </div>
-          
-          <div class="shape shbr" data-target="oval">
-            <span>Oval</span>
-            <div class="shape_image" title="Oval">
-              <img srcset="assets/images/shapes/oval diamond1.png 320w, assets/images/shapes/oval diamond1.png 640w, assets/images/shapes/oval diamond1.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/oval diamond1.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Oval">
-          </div>
-          
-          <div class="shape shbr" data-target="Marquise">
-            <span>Marqui?</span>
-            <div class="shape_image" title="Marquise">
-              <img srcset="assets/images/shapes/diamond marquise.png 320w, assets/images/shapes/diamond marquise.png 640w, assets/images/shapes/diamond marquise.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/diamond marquise.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Marquise">
-          </div>
-          
-          <div class="shape shbr" data-target="emerald">
-            <span>Emerald</span>
-            <div class="shape_image" title="Emerald">
-              <img srcset="assets/images/shapes/Emerald2.png 320w, assets/images/shapes/Emerald2.png 640w, assets/images/shapes/Emerald2.png 1280w" sizes="(max-width: 640px) 100vw, 50vw" src="assets/images/shapes/Emerald2.png" alt="Image" loading="lazy" class="img-fluid">
-            </div>
-            <input type="checkbox" name="shape" value="Emerald">
-          </div>
-          <div class="shape shbr">
-            <span>Other</span>
-            <div class="shape_image pt-2" title="Other">
-              <p>Other</p>
-            </div>
-            <input type="checkbox" name="shape" value="Cushion">
-          </div>
-        </div>  
-        <div class="color_part">
-          <div class="shape"> 
-            <span>Any</span>
-            <div class="shape_image any">
-              Color
-            </div>
-            <input type="checkbox" name="color" value="Other">
-          </div>
-          <div class="shape">
-            <span>Yellow</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/yellow.jpg" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="yellow">
-          </div>
-          <div class="shape">
-            <span>Pink</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/pink1.jpg" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="pink">
-          </div>
-          <div class="shape">
-            <span>Orange</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/orange.jpg " class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="orange">
-          </div>
-          
-          <div class="shape">
-            <span>Blue</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/blue.jpg" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="blue">
-          </div>
-          <div class="shape">
-            <span>Green</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/green.jpg" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="green">
-          </div>
-          <div class="shape">
-            <span>Brown</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/brown.png" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="brown">
-          </div>
-          <div class="shape">
-            <span>Red</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/red.jpg" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="red">
-          </div>
-          <div class="shape">
-            <span>white</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/white.png" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="white">
-          </div>
-          <div class="shape">
-            <span>Oliv</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/oliv.png" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="oliv">
-          </div>
-          <div class="shape">
-            <span>Black</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/black.jpg" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="black">
-          </div>
-          <div class="shape">
-            <span>Gray</span>
-            <div class="shape_image">
-              <img src="assets/images/fancy_color/gray.png" class="img-fluid">
-            </div>
-            <input type="checkbox" name="color" value="black">
-          </div>
-        </div>
-
+            <input type="checkbox" name="shape[]" value="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>" class="myCheckbox" data-target="<?php echo isset($shape['shape_name']) && !empty($shape['shape_name']) ? htmlspecialchars($shape['shape_name']) : 'Other'; ?>">
+         </div> 
+         <?php } } ?>
       </div>
-
+      <div class="shape_image_row">
+         <?php
+           if (isset($fancycolors) && !empty($fancycolors)) {
+               //print_r($fancycolors);die;
+              $fancy_color_name = array();
+              foreach ($fancycolors as $index => $shape) {
+                  $image = $shape['system_file_name'];
+                  $fancy_color_name[] = $shape['fancy_color_name'];
+              }
+              // $url = 'get-products-get-shape?';
+              // foreach ($shapeNames as $shapeName) {
+              //     $url .= 'shape[]=' . urlencode($shapeName) . '&';
+              // }
+              // $url = rtrim($url, '&');
+         ?>
+         <div class="shape shbr" data-target="any_shape">
+            <span>Any</span>
+            <div class="shape_image any">
+              Any
+              <?php foreach ($fancy_color_name as $shapeName): ?>
+              <input type="hidden" name="shape[]" value="<?php echo htmlspecialchars($shapeName); ?>" class="myCheckbox" data-target="<?php echo htmlspecialchars($shapeName); ?>">
+              <?php endforeach; ?>
+            </div>
+            <input type="checkbox" name="shape[]" value="<?php echo isset($shape['fancy_color_name']) && !empty($shape['fancy_color_name']) ? htmlspecialchars($shape['fancy_color_name']) : 'Other'; ?>" class="myCheckbox" data-target="<?php echo isset($shape['fancy_color_name']) && !empty($shape['fancy_color_name']) ? htmlspecialchars($shape['fancy_color_name']) : 'Other'; ?>">
+         </div>
+         <?php } ?>
+         <?php
+            if (isset($fancycolors) && !empty($fancycolors)) {
+              foreach ($fancycolors as $index => $shape) {
+         ?>
+         <div class="shape shbr" data-target="any_shape">
+            <span><?php echo ucfirst($shape['fancy_color_name']); ?></span>
+            <div class="shape_image" title="<?php echo ucfirst($shape['fancy_color_name']); ?>">
+               <?php 
+                  $image = $shape['system_file_name'];
+                  if($image){ ?>
+                     <img src="assets/uploads/fancycolor/<?php echo $image;?>" class="img-fluid">
+               <?php 
+                  }else{?>
+                      <span><?php echo $shape['fancy_color_name'];?></span>
+               <?php }
+               ?>
+            </div>
+            <input type="checkbox" name="shape[]" value="<?php echo isset($shape['fancy_color_name']) && !empty($shape['fancy_color_name']) ? htmlspecialchars($shape['fancy_color_name']) : 'Other'; ?>" class="myCheckbox" data-target="<?php echo isset($shape['fancy_color_name']) && !empty($shape['fancy_color_name']) ? htmlspecialchars($shape['fancy_color_name']) : 'Other'; ?>">
+         </div> 
+         <?php } } ?>
+      </div>
+      </div>
       <table class="table-responsive fancy_shape_table table-bordered mt-3 table-striped">
         <thead>
           <tr>
@@ -750,7 +518,6 @@
         </tbody>
      </table>
     </div>
-
       <div class="differ_view center mt-5">
         <h2 class="center">Shop By Shape</h2>
         <p style="font-size: large;font-weight: 700;">We Have Total <b>6,00,000</b> (DYNAMIC) Diamonds In Inventory.</p>
@@ -758,7 +525,7 @@
       <div class="heading_border"></div>
       <div class="row">
         <div class="col-md-12 mt-4">
-          <div class="shape_image_shop">
+          <div class="shape_image_shop"> 
             <div class="shape">
               <span>Any</span>
               <div class="shape_shop pt-4" title="Any">
@@ -1136,36 +903,3 @@
         </div>
       </div>
     </div>
-
-    <!-----container fluid end------>
-    <!----footer start------->
-    <footer class="mt-5">
-      <button id="topfun" title="Back to top">
-        <i class="fa fa-hand-o-up" style="font-size: 30px;"></i>
-      </button>
-      <div class="gif">
-        <div class="desk-gif-content pt-4">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="desk-gif-content1">
-                <p>Hum aasman se
-                  <span>TAARE</span>
-                  tod laate hai zameen par,<br> aap jaise
-                  <span>SITAREo</span> ke liye
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="desk-gif-content2">
-                <p>We get STARS like sparkling DIAMONDS
-                  <span>(TAARE)</span>
-                  from the galaxy,<br> for CELEBRITIES
-                  <span>(SITARE)</span>
-                  like YOU.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-<!-----container fluid end---->
