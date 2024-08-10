@@ -30,7 +30,6 @@ class Admin extends CI_Controller {
 		
 	}
 
-
 	public function login() {
 		$data['view'] 				= 'admin/login.html';
 		$data['title'] 				= 'Admin | Login';
@@ -436,6 +435,36 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function b2a(){
+	    $admin_session = $this->session->userdata('admin');
+		if(isset($admin_session) && !empty($admin_session)){
+			if(isset($admin_session['isLoggedIn']) && $admin_session['isLoggedIn'] == TRUE) {
+			$data['view']   = 'admin/b2a/b2a';
+			$data['script'] = 'b2a.js';
+			$this->template->load_admin($data);
+		} else {
+				redirect(base_url().'login');
+			}
+		} else {
+			redirect(base_url().'login');
+		}
+	}
+
+	public function b2c(){
+	    $admin_session = $this->session->userdata('admin');
+		if(isset($admin_session) && !empty($admin_session)){
+			if(isset($admin_session['isLoggedIn']) && $admin_session['isLoggedIn'] == TRUE) {
+			$data['view']   = 'admin/b2c/b2c';
+			$data['script'] = 'b2c.js';
+			$this->template->load_admin($data);
+		} else {
+				redirect(base_url().'login');
+			}
+		} else {
+			redirect(base_url().'login');
+		}
+	}
+
 	public function subadmin(){
 	    $admin_session = $this->session->userdata('admin');
 		if(isset($admin_session) && !empty($admin_session)){
@@ -634,23 +663,6 @@ class Admin extends CI_Controller {
 	public function clear_rapaport_rate(){
 		
 	}
-
-	//Jewellary controller functions
-	public function permanent_jewellary_page(){
-		$admin_session = $this->session->userdata('admin');
-		if(isset($admin_session) && !empty($admin_session)){
-			if(isset($admin_session['isLoggedIn']) && $admin_session['isLoggedIn'] == TRUE) {
-				$data['view'] 	    = 'admin/jewellary/permanent_jewellary_pages';
-				$data['title'] 		= 'Admin | Permanent Jewellary Page';
-				$data['script']		= 'permanent_jewellary_page.js';
-				$this->template->load_admin($data);
-			} else {
-				redirect(base_url().'admin/login');
-			}
-		} else {
-			redirect(base_url().'admin/login');
-		}
-	}
 	
 	
 	// public function products_measures(){
@@ -667,4 +679,21 @@ class Admin extends CI_Controller {
 	// 		redirect(base_url().'login');
 	// 	}
 	// }
+
+	public function home_page_api(){
+	    $admin_session = $this->session->userdata('admin');
+		if(isset($admin_session) && !empty($admin_session)){
+			if(isset($admin_session['isLoggedIn']) && $admin_session['isLoggedIn'] == TRUE) {
+			$data['view']   = 'admin/homeapi/homeapi';
+			$data['script'] = 'homeapi.js';
+			$this->template->load_admin($data);
+		} else {
+				redirect(base_url().'login');
+			}
+		} else {
+			redirect(base_url().'login');
+		}
+	}
+
+
 }

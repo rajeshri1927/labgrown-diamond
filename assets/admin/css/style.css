@@ -9222,7 +9222,8 @@ app-root {
     .sidebar .sidebar-nav,
     .sidebar .nav {
       width: 220px;
-      min-height: calc(100vh - 55px); }
+/*      min-height: calc(100vh - 55px); */
+    }
     .sidebar .sidebar-minimizer {
       display: none; }
   .main, .app-footer {

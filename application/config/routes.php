@@ -30,22 +30,25 @@ $resultPermanentCityPage =  $db->get('tbl_permanent_city_pages')->result_array()
  } 
  
 
-// $resultPermanentProductPage =  $db->get('tbl_permanent_product_page')->result_array();
-// foreach( $resultPermanentProductPage as $PermanentProductPage ){
-// 	//echo $PermanentProductPage['permanent_product_page_limit']."<br/>";
-// 	for($r=001;$r<=$PermanentProductPage['permanent_product_page_limit']; $r++){
-// 		$url = $PermanentProductPage['permanent_product_page_url']."/".$PermanentProductPage['permanent_product_page_Id']."-".sprintf('%03d',$r);
-// 		//echo "<r/>Url-". $url ."<br/>";
-// 		$route[$url]      = 'Product/permanent_product_page/'.sprintf('%03d',$r);
+$resultPermanentProductPage =  $db->get('tbl_permanent_product_page')->result_array();
+foreach( $resultPermanentProductPage as $PermanentProductPage ){
+	//echo $PermanentProductPage['permanent_product_page_limit']."<br/>";
+	for($r=001;$r<=$PermanentProductPage['permanent_product_page_limit']; $r++){
+		$url = $PermanentProductPage['permanent_product_page_url']."/".$PermanentProductPage['permanent_product_page_Id']."-".sprintf('%03d',$r);
+		//echo "<r/>Url-". $url ."<br/>";
+		$route[$url]      = 'Product/permanent_product_page/'.sprintf('%03d',$r);
+	}
+}
+
+// $resultJewellaryProductPage =  $db->get('tbl_jewellary_products')->result_array();
+// foreach( $resultJewellaryProductPage as $JewellaryProductPage ){
+// 	for($i=1;$i<=count($JewellaryProductPage); $i++){
+// 		$detail = $JewellaryProductPage[$i - 1];
+// 		$url = $detail['our_URL'];
+// 		//echo "<r/>Url-". $url ."<br/>";//die;
+// 		$route[$url]      = 'JewProduct/jewellary_product_page/';//.sprintf('%03d',$i);
 // 	}
 // }
-$resultJewellaryProductPage =  $db->get('tbl_jewellary_products')->result_array();
-	for($i=1;$i<=count($resultJewellaryProductPage); $i++){
-		$detail = $resultJewellaryProductPage[$i - 1];
-		$url = $detail['our_URL'];
-		//echo "<r/>Url-". $url ."<br/>";//die;
-		$route[$url]      = 'JewProduct/jewellary_product_page/';//.sprintf('%03d',$i);
-	}
 
 $resultPriceRange =  $db->get('tbl_price_range')->result_array();
 foreach( $resultPriceRange as $resultPriceRange ){
@@ -428,68 +431,77 @@ $route['admin/products-measures']        = 'ProductMeasurement/get_product_measu
 $route['set-product-measurement']        = 'ProductMeasurement/set_product_measurement';
 $route['get-product-measurement']        = 'ProductMeasurement/get_product_measurement';
 $route['get-measure']                    = 'ProductMeasurement/get_measure';
-$route['set-product-measure-display'] 	 = 'ProductMeasurement/set_product_measure_display';
+$route['set-product-measure-display'] 	  = 'ProductMeasurement/set_product_measure_display';
 $route['delete-product-measure']         = 'ProductMeasurement/delete_product_measure';
 
 $route['admin/product-image-upload']     = 'ImageUpload/index';
 $route['admin/ImageUpload/upload']       = 'ImageUpload/do_upload';
 
+//Home page API data route//
+$route['admin/home-page-api']             = 'admin/home_page_api';
+$route['set-home-api-response']     		= 'Homeapi/setHomeApiResponse';
+$route['get-all-b2c']               		= 'Homeapi/get_all_b2c';
+$route['get-home-api-form-view']    		= 'Homeapi/get_home_api_form_view';
+$route['get-home-api'] 			      		= 'Homeapi/get_home_api';
+$route['delete-home-api'] 			   		= 'Homeapi/delete_home_api';
+$route['set-home-api-display']      		= 'Homeapi/set_home_api_display';
+
 //Jewellary Categories
-$route['admin/jewellary-categories'] 	= 'JewCategory/jewellary_categories_view';
-$route['set-jewellary-category']   	= 'JewCategory/set_jewellary_category';
+$route['admin/jewellary-categories'] 	   = 'JewCategory/jewellary_categories_view';
+$route['set-jewellary-category']   	      = 'JewCategory/set_jewellary_category';
 $route['get-jewellary-categories'] 			= 'JewCategory/get_jewellary_categories';
-$route['get-jewellary-category'] 				= 'JewCategory/get_jewellary_category';
-$route['delete-jewellary-category'] 			= 'JewCategory/delete_jewellary_category';
+$route['get-jewellary-category'] 			= 'JewCategory/get_jewellary_category';
+$route['delete-jewellary-category'] 		= 'JewCategory/delete_jewellary_category';
 
 //jewellary Subcategories
-$route['admin/jewellary-subcategories'] 	= 'JewSubCategory/jewellary_subcategories_view';
-$route['set-jewellary-subcategory']   	= 'JewSubCategory/set_jewellary_subcategory';
+$route['admin/jewellary-subcategories'] 	   = 'JewSubCategory/jewellary_subcategories_view';
+$route['set-jewellary-subcategory']   	      = 'JewSubCategory/set_jewellary_subcategory';
 $route['get-jewellary-subcategories'] 			= 'JewSubCategory/get_jewellary_subcategories';
-$route['get-jewellary-subcategory'] 				= 'JewSubCategory/get_jewellary_subcategory';
-$route['delete-jewellary-subcategory'] 			= 'JewSubCategory/delete_jewellary_subcategory';
+$route['get-jewellary-subcategory'] 			= 'JewSubCategory/get_jewellary_subcategory';
+$route['delete-jewellary-subcategory'] 		= 'JewSubCategory/delete_jewellary_subcategory';
 
 //jewellary Attributes
 $route['admin/jewellary-attributes'] 	= 'JewAttribute/jewellary_attributes_view';
 $route['set-jewellary-attributes']   	= 'JewAttribute/set_jewellary_attributes';
-$route['get-jewellary-attributes'] 			= 'JewAttribute/get_jewellary_attributes';
-$route['get-jewellary-attribute'] 				= 'JewAttribute/get_jewellary_attribute';
-$route['delete-jewellary-attribute'] 			= 'JewAttribute/delete_jewellary_attributes';
+$route['get-jewellary-attributes'] 		= 'JewAttribute/get_jewellary_attributes';
+$route['get-jewellary-attribute'] 		= 'JewAttribute/get_jewellary_attribute';
+$route['delete-jewellary-attribute'] 	= 'JewAttribute/delete_jewellary_attributes';
 
 //jewellary PriceRange
 $route['admin/jewellary-pricerange'] 	= 'JewPricerange/jewellary_pricerange_view';
 $route['set-jewellary-pricerange']   	= 'JewPricerange/set_jewellary_pricerange';
-$route['get-jewellary-priceranges'] 			= 'JewPricerange/get_jewellary_priceranges';
-$route['get-jewellary-pricerange'] 				= 'JewPricerange/get_jewellary_pricerange';
-$route['delete-jewellary-pricerange'] 			= 'JewPricerange/delete_jewellary_pricerange';
+$route['get-jewellary-priceranges'] 	= 'JewPricerange/get_jewellary_priceranges';
+$route['get-jewellary-pricerange'] 		= 'JewPricerange/get_jewellary_pricerange';
+$route['delete-jewellary-pricerange'] 	= 'JewPricerange/delete_jewellary_pricerange';
 
 //Different Prices
 $route['admin/jewellary-differentprices'] 	= 'JewDiffprices/jewellary_differentprices_view';
-$route['jewellay-upload-differentprice-excel'] 		= 'JewDiffprices/upload_different_table_prices_excel';
+$route['jewellay-upload-differentprice-excel'] = 'JewDiffprices/upload_different_table_prices_excel';
 $route['get-jewellay-different-prices'] 		= 'JewDiffprices/get_jewellay_different_prices';
 
 //Jewellary Metals
 $route['admin/jewellary-metal'] 	= 'JewMetal/jewellary_metal_view';
 $route['set-jewellary-metal']	  	= 'JewMetal/set_jewellary_metal';
-$route['get-jewellary-metals'] 			= 'JewMetal/get_jewellary_metals';
-$route['get-jewellary-metal'] 				= 'JewMetal/get_jewellary_metal';
-$route['delete-jewellary-metal']			= 'JewMetal/delete_jewellary_metal';
+$route['get-jewellary-metals'] 	= 'JewMetal/get_jewellary_metals';
+$route['get-jewellary-metal'] 	= 'JewMetal/get_jewellary_metal';
+$route['delete-jewellary-metal']	= 'JewMetal/delete_jewellary_metal';
 
 //Jewellary Brands
 
-$route['admin/jewellary-brands']         = 'JewBrand/jewellary_brands_view';
-$route['set-jewellary-brand']            = 'JewBrand/set_jewellary_brand';
-$route['get-jewellary-brands']           = 'JewBrand/get_jewellary_brands';
-$route['get-jewellary-brand']            = 'JewBrand/get_jewellary_brand';
-$route['delete-jewellary-brand']         = 'JewBrand/delete_jewellary_brand';
+$route['admin/jewellary-brands']  = 'JewBrand/jewellary_brands_view';
+$route['set-jewellary-brand']     = 'JewBrand/set_jewellary_brand';
+$route['get-jewellary-brands']    = 'JewBrand/get_jewellary_brands';
+$route['get-jewellary-brand']     = 'JewBrand/get_jewellary_brand';
+$route['delete-jewellary-brand']  = 'JewBrand/delete_jewellary_brand';
 
 
 //Jewellary Certificates
 
-$route['admin/jewellary-certificate']            = 'JewCertificate/certificate_jewellary_view';          // View for managing certificates
-$route['set-jewellary-certificate']              = 'JewCertificate/set_jewellary_certificate';           // Add or update a certificate
-$route['get-jewellary-certificates']             = 'JewCertificate/get_jewellary_certificates';          // Get a list of certificates
-$route['get-jewellary-certificate']              = 'JewCertificate/get_jewellary_certificate';           // Get a single certificate by ID
-$route['delete-jewellary-certificate']           = 'JewCertificate/delete_jewellary_certificate';        // Delete a certificate
+$route['admin/jewellary-certificate']    = 'JewCertificate/certificate_jewellary_view';          // View for managing certificates
+$route['set-jewellary-certificate']      = 'JewCertificate/set_jewellary_certificate';           // Add or update a certificate
+$route['get-jewellary-certificates']     = 'JewCertificate/get_jewellary_certificates';          // Get a list of certificates
+$route['get-jewellary-certificate']      = 'JewCertificate/get_jewellary_certificate';           // Get a single certificate by ID
+$route['delete-jewellary-certificate']   = 'JewCertificate/delete_jewellary_certificate';        // Delete a certificate
 
 //Jewellary Celebrities
 
@@ -502,19 +514,19 @@ $route['delete-jewellary-celebrity']      = 'JewCelebrity/delete_jewellary_celeb
 //Jewellary Product Page
 
 $route['admin/jewellary-branded'] 			= 'JewProduct/permanent_product_page';
-$route['upload-jewellary-product-Page-excel'] 		= 'JewProduct/upload_permanent_product_page_excel';
-$route['get_jewellary_product_page_list'] 				= 'JewProduct/get_permanent_product_page_list';
-$route['get_jewellary_product_page_details/(:num)/(:num)'] 				= 'JewProduct/get_jewellary_product_page_details/$1/$2';
+$route['upload-jewellary-product-Page-excel'] = 'JewProduct/upload_permanent_product_page_excel';
+$route['get_jewellary_product_page_list'] 	 = 'JewProduct/get_permanent_product_page_list';
+$route['get_jewellary_product_page_details/(:num)/(:num)'] = 'JewProduct/get_jewellary_product_page_details/$1/$2';
 
 
 //Jewellary Image Upload Page
 
-$route['admin/jewellary-Image-Upload'] 			= 'JewUploadImage/jewellary_image_upload_page';
-$route['jewellary-upload-image-folder'] 			= 'JewUploadImage/upload_image_folder';
+$route['admin/jewellary-Image-Upload'] 	= 'JewUploadImage/jewellary_image_upload_page';
+$route['jewellary-upload-image-folder'] 	= 'JewUploadImage/upload_image_folder';
 
 //Jewellary Metal Plating
 
-$route['admin/jewellary-metal-plating']            = 'JewMetalPlating/metal_plating_view';
+$route['admin/jewellary-metal-plating']  = 'JewMetalPlating/metal_plating_view';
 $route['get-metal-platings']       = 'JewMetalPlating/get_metal_platings';
 $route['set-metal-plating']        = 'JewMetalPlating/set_metal_plating';
 $route['get-metal-plating']        = 'JewMetalPlating/get_metal_plating';
